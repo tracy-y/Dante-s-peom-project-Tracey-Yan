@@ -56,10 +56,38 @@ for (let i=0; i< peomArr.length; i++) {
      const arr = peomArr[i].split("\n");
      const text = arr[0];
      if (text) {
-        html += `<p>+${text}+</p>`;
+        html += "<p>"+text+"</p>";
      }
      con.innerHTML = html;
 }
 }
+
+const oP = con.getElementsByTagName("p");
+
+let num = 0;
+myAudio.addEventListener("click", () => {
+  const curTime = parseInt(this.currentTime);
+
+  if(document.getElementById(curTime)){
+     for(let i=0; i<oP.length; i++ ){
+       oP[i].style.cssText = "color: #fff; font-size:12px;";  
+     }
+
+     document.getElementById(curTime).style.cssText = "color:rgb(242, 110, 111); font-size:18px;";
+     
+     if (oP[num].id === curTime){
+      con.style.top = -20*num +"px";
+      num++;
+     }
+  }
+
+})
+
+myAudio.addEventListener("start", () => {
+ playBtn.className = "pause";
+ onOff = false;
+ con.style.top = 0 ;
+ this.currentTime = 0;
+});
 
 

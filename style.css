@@ -70,6 +70,12 @@ body {
   overflow: hidden;
 }
 
+.content {
+ position: relative;
+ left: 0;
+ top: 0px; 
+}
+
 button {
   background-color: #fff;
   border: none;
