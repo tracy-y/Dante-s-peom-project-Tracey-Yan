@@ -4,6 +4,7 @@ const slideLeft = document.querySelector('.left-slide')
 const upButton = document.querySelector('.up-button')
 const downButton = document.querySelector('.down-button')
 const slidesLength = slideRight.querySelectorAll('div').length
+// const moreButton = document.querySelector(".btn btn-outline-light")
 
 
 // up/down button functionality
@@ -13,15 +14,16 @@ slideLeft.style.top = `-${(slidesLength - 1) * 100}vh`
 
 upButton.addEventListener('click', () => changeSlide('up'))
 downButton.addEventListener('click', () => changeSlide('down'))
+// moreButton.addEventListener('click', () => upButton)
 
 const changeSlide = (direction) => {
     const sliderHeight = sliderContainer.clientHeight
-    if(direction === 'up') {
+    if(direction === 'down') {
         activeSlideIndex++
         if(activeSlideIndex > slidesLength - 1) {
             activeSlideIndex = 0
         }
-    } else if(direction === 'down') {
+    } else if(direction === 'up') {
         activeSlideIndex--
         if(activeSlideIndex < 0) {
             activeSlideIndex = slidesLength - 1
@@ -29,65 +31,63 @@ const changeSlide = (direction) => {
     }
 
     slideRight.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`
-    slideLeft.style.transform = `translateY(${activeSlideIndex * sliderHeight}px)`
+    // slideLeft.style.transform = `translateY(${activeSlideIndex * sliderHeight}px)`
 }
 
-// paly audio
+// innerHTML arr of poem
 
-const playBtn = document.getElementsByClassName("btn btn-outline-light")[0];
-const con = document.getElementsByClassName("content")[0];
-const myAudio = document.getElementById("myAudio");
-playBtn.addEventListener('click', () => playAudio())
+const con1 = document.getElementsByClassName("content1")[0];
+const con2 = document.getElementsByClassName("content2")[0];
+const con3 = document.getElementsByClassName("content3")[0];
+const poem1 = document.getElementById("poem1").innerHTML; 
+const poem2 = document.getElementById("poem2").innerHTML; 
+const poem3 = document.getElementById("poem3").innerHTML; 
 
-const playAudio = (onOff) => {
-  if (onOff) {
-    myAudio.play();
-    onOff = false;
-  } else {
-    myAudio.pause();
-    onOff = true;
-    // this.className = "play";
-  }
-  const txt = document.getElementById("poem");
-  const Poem = txt.value; 
-const peomArr = Poem.split("<br>");
-let html = "";
-for (let i=0; i< peomArr.length; i++) {
-     const arr = peomArr[i].split("\n");
-     const text = arr[0];
-     if (text) {
-        html += "<p>"+text+"</p>";
-     }
-     con.innerHTML = html;
+const poem =[poem1, poem2, poem3];
+const con =[con1, con2, con3];
+
+for(i=0; i < con.length; i++) {
+    conItem = con[i];
+
+        poem.map((poemItem) => {
+        const poemArr = poemItem.split("\n");
+        // console.log(poemArr);
+
+        let html = "";
+        for (let i=0; i< poemArr.length; i++){
+            const arr = poemArr[i].replace(/(^\s*)|(\s*$)/g, "");
+            // console.log(arr);
+            const text = arr;
+            html += "<p>"+text+"</p>";
+            conItem.innerHTML = html;
+            //  console.log(con);
+        }
+    })
 }
-}
 
-const oP = con.getElementsByTagName("p");
 
-let num = 0;
-myAudio.addEventListener("click", () => {
-  const curTime = parseInt(this.currentTime);
 
-  if(document.getElementById(curTime)){
-     for(let i=0; i<oP.length; i++ ){
-       oP[i].style.cssText = "color: #fff; font-size:12px;";  
-     }
+//word change
+    let oP = con[0].getElementsByTagName("p");
+    function wordChange(event) {
+        for(let i=0; i<oP.length; i++ ){
+        oP[i].style.cssText = " font-size:1.8rem;font-family: 'Dancing Script', cursive;";  
+        } ;
+        con.style.cssText = " font-size:1rem; lead font-family:'Open Sans', sans-serif;"; 
 
-     document.getElementById(curTime).style.cssText = "color:rgb(242, 110, 111); font-size:18px;";
-     
-     if (oP[num].id === curTime){
-      con.style.top = -20*num +"px";
-      num++;
-     }
-  }
+    }
 
-})
 
-myAudio.addEventListener("start", () => {
- playBtn.className = "pause";
- onOff = false;
- con.style.top = 0 ;
- this.currentTime = 0;
-});
 
+
+// const oP = con.getElementsByTagName("p");
+
+// function wordChange(event) {
+//   if (document.getElementsByTagName("p")){
+
+//     for(let i=0; i<oP.length; i++ ){
+//        oP[i].style.cssText = "color: #fff; font-size:1.8rem;font-family: 'Dancing Script', cursive;";  
+//      } 
+//  }
+// }
 
