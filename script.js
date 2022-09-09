@@ -31,7 +31,7 @@ const changeSlide = (direction) => {
     }
 
     slideRight.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`
-    // slideLeft.style.transform = `translateY(${activeSlideIndex * sliderHeight}px)`
+
 }
 
 // innerHTML arr of poem
@@ -78,16 +78,4 @@ for(i=0; i < con.length; i++) {
     }
 
 
-
-
-// const oP = con.getElementsByTagName("p");
-
-// function wordChange(event) {
-//   if (document.getElementsByTagName("p")){
-
-//     for(let i=0; i<oP.length; i++ ){
-//        oP[i].style.cssText = "color: #fff; font-size:1.8rem;font-family: 'Dancing Script', cursive;";  
-//      } 
-//  }
-// }
 
