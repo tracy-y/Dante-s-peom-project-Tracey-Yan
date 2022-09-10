@@ -43,59 +43,57 @@ const poem1 = document.getElementById("poem1").innerHTML;
 const poem2 = document.getElementById("poem2").innerHTML; 
 const poem3 = document.getElementById("poem3").innerHTML; 
 
+// const poem =[poem1, poem2, poem3];
+// const con =[con1, con2, con3];
+
+// for(let i=0; i < con.length; i++) {
+//     conItem = con[i];
+
+//         poem.map((poemItem) => {
+//         const poemArr = poemItem.split("\n");
+//         // console.log(poemArr);
+
+//         let html = "";
+//         for (let i=0; i< poemArr.length; i++){
+//             const arr = poemArr[i].replace(/(^\s*)|(\s*$)/g, "");
+//             // console.log(arr);
+//             const text = arr;
+//             html += "<p onclick="wordChange(this)" >"+text+"</p>";
+//             conItem.innerHTML = html;
+//             //  console.log(con);
+//         }
+//     })
+// }
+
 const poem =[poem1, poem2, poem3];
 const con =[con1, con2, con3];
 
-for(let i=0; i < con.length; i++) {
+for(i=0; i < con.length; i++) {
     conItem = con[i];
 
-        poem.map((poemItem) => {
+    poem.map((poemItem) => {
         const poemArr = poemItem.split("\n");
-        // console.log(poemArr);
-
         let html = "";
         for (let i=0; i< poemArr.length; i++){
             const arr = poemArr[i].replace(/(^\s*)|(\s*$)/g, "");
-            // console.log(arr);
             const text = arr;
             html += "<p>"+text+"</p>";
             conItem.innerHTML = html;
-            //  console.log(con);
         }
     })
 }
 
-// const poem =[poem1, poem2, poem3];
-// const con =[con1, con2, con3];
-
-// const Html = (poem, con) => {
-
-//     for(let i=0; i < con.length; i++) {
-//             const poemArr = poem[i].split("\n");
-//             console.log(poemArr);
-            
-//             let html = "";
-//             for (let i=0; i< poemArr.length; i++){
-//                 const arr = poemArr[i].replace(/(^\s*)|(\s*$)/g, "");
-//                 // console.log(arr);
-//                 const text = arr;
-//                 html += "<p>"+text+"</p>";
-//                 con[i].innerHTML = html;
-//                 //  console.log(con);
-//             }
-//   }
-
-// }
-
-
 //word change
     let oP = con[0].getElementsByTagName("p");
-    function wordChange(event) {
-        for(let i=0; i<oP.length; i++ ){
+    function wordChange(event, p) {
+        if (document.getElementsByTagName(p)){
+            for(let i=0; i<oP.length; i++ ){
             oP[i].style.cssText = " font-size:1.8rem;font-family: 'Dancing Script', cursive;";  
         } ;
             con.style.cssText = " font-size:1rem; lead font-family:'Open Sans', sans-serif;"; 
 
+        }
+        
     }
 
 
