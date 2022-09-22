@@ -36,56 +36,56 @@ const changeSlide = (direction) => {
 
 // innerHTML arr of poem
 
-const con1 = document.getElementsByClassName("content1")[0];
-const con2 = document.getElementsByClassName("content2")[0];
-const con3 = document.getElementsByClassName("content3")[0];
-const poem1 = document.getElementById("poem1").innerHTML; 
-const poem2 = document.getElementById("poem2").innerHTML; 
-const poem3 = document.getElementById("poem3").innerHTML; 
-
-const poem =[poem1, poem2, poem3];
-const con =[con1, con2, con3];
-
-for(let i=0; i < con.length; i++) {
-    conItem = con[i];
-
-        poem.map((poemItem) => {
-        const poemArr = poemItem.split("\n");
-        // console.log(poemArr);
-
-        let html = "";
-        for (let i=0; i< poemArr.length; i++){
-            const arr = poemArr[i].replace(/(^\s*)|(\s*$)/g, "");
-            // console.log(arr);
-            const text = arr;
-            html += "<p>"+text+"</p>";
-            conItem.innerHTML = html;
-            //  console.log(con);
-        }
-    })
-}
+// const con1 = document.getElementsByClassName("content1")[0];
+// const con2 = document.getElementsByClassName("content2")[0];
+// const con3 = document.getElementsByClassName("content3")[0];
+// const poem1 = document.getElementById("poem1").innerHTML; 
+// const poem2 = document.getElementById("poem2").innerHTML; 
+// const poem3 = document.getElementById("poem3").innerHTML; 
 
 // const poem =[poem1, poem2, poem3];
 // const con =[con1, con2, con3];
 
-// const Html = (poem, con) => {
+// for(let i=0; i < con.length; i++) {
+//     conItem = con[i];
 
-//     for(let i=0; i < con.length; i++) {
-//             const poemArr = poem[i].split("\n");
-//             console.log(poemArr);
-            
-//             let html = "";
-//             for (let i=0; i< poemArr.length; i++){
-//                 const arr = poemArr[i].replace(/(^\s*)|(\s*$)/g, "");
-//                 // console.log(arr);
-//                 const text = arr;
-//                 html += "<p>"+text+"</p>";
-//                 con[i].innerHTML = html;
-//                 //  console.log(con);
-//             }
-//   }
+//         poem.map((poemItem) => {
+//         const poemArr = poemItem.split("\n");
+//         // console.log(poemArr);
 
+//         let html = "";
+//         for (let i=0; i< poemArr.length; i++){
+//             const arr = poemArr[i].replace(/(^\s*)|(\s*$)/g, "");
+//             // console.log(arr);
+//             const text = arr;
+//             html += "<p>"+text+"</p>";
+//             conItem.innerHTML = html;
+//             //  console.log(con);
+//         }
+//     })
 // }
+
+const poem =[poem1, poem2, poem3];
+const con =[con1, con2, con3];
+
+const Html = (poem, con) => {
+
+    for(let i=0; i < con.length; i++) {
+            const poemArr = poem[i].split("\n");
+            console.log(poemArr);
+            
+            let html = "";
+            for (let i=0; i< poemArr.length; i++){
+                const arr = poemArr[i].replace(/(^\s*)|(\s*$)/g, "");
+                // console.log(arr);
+                const text = arr;
+                html += "<p>"+text+"</p>";
+                con[i].innerHTML = html;
+                //  console.log(con);
+            }
+  }
+
+}
 
 
 //word change
