@@ -72,7 +72,7 @@ const Html = (poem, con) => {
 
     for(let i=0; i < con.length; i++) {
             const poemArr = poem[i].split("\n");
-            console.log(poemArr);
+//             console.log(poemArr);
             
             let html = "";
             for (let i=0; i< poemArr.length; i++){
